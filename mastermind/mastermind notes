@@ -1,0 +1,38 @@
+mastermind
+
+starts as computer generated random code answer
+refactor to allow human to make code, computer guess
+	first computer randomly guesses
+	then add some AI - if guessed right
+
+
+
+game
+	initializes board, random code answer [], guess tracker [], key pegs []{}?
+
+	welcomes
+		while variable != "P" 'enter P to play'
+
+	solicits guesses
+		guess = gets.chomp.split("")
+
+
+
+decoding board
+	12 rows
+	accepts guess
+	puts guess response
+		checks if guess correct
+			checks each peg if right - 4 slot array full of true falses
+		checks if guess close
+
+
+code pegs - for guesses
+	six different colors
+	runs through key 
+
+
+key pegs - for response to guess
+	correct, close, blank
+
+

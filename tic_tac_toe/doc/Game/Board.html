@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Game::Board - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-assign_box">#assign_box</a>
+    
+    <li ><a href="#method-i-cat_game-3F">#cat_game?</a>
+    
+    <li ><a href="#method-i-sample_board">#sample_board</a>
+    
+    <li ><a href="#method-i-view_board">#view_board</a>
+    
+    <li ><a href="#method-i-winner-3F">#winner?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Game::Board">
+  <h1 id="class-Game::Board" class="class">
+    class Game::Board
+  </h1>
+
+  <section class="description">
+    
+<p>controls the gaming board</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>initializes the board with a 9-place array, each with value “ ” to be
+adjusted later</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File tictactoe.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-ivar">@grid</span> = []
+  <span class="ruby-value">9</span>.<span class="ruby-identifier">times</span> { <span class="ruby-ivar">@grid</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot; &quot;</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-assign_box" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assign_box</span><span
+            class="method-args">(box, xoro)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>assigns X or O to a box - checks box is vacant and number is 1-9</p>
+          
+          
+
+          
+          <div class="method-source-code" id="assign_box-source">
+            <pre><span class="ruby-comment"># File tictactoe.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assign_box</span>(<span class="ruby-identifier">box</span>, <span class="ruby-identifier">xoro</span>)
+  <span class="ruby-keyword">until</span> (<span class="ruby-identifier">box</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">box</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">10</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-ivar">@grid</span>[<span class="ruby-identifier">box</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot; &quot;</span>)
+                <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;nope, try again&quot;</span>
+                <span class="ruby-identifier">box</span> = <span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@grid</span>[<span class="ruby-identifier">box</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>] = <span class="ruby-identifier">xoro</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cat_game-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cat_game?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>checks for a draw</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cat_game-3F-source">
+            <pre><span class="ruby-comment"># File tictactoe.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cat_game?</span>
+  <span class="ruby-operator">!</span>(<span class="ruby-ivar">@grid</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot; &quot;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sample_board" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sample_board</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>draws a sample board, to show 1-9 locations</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sample_board-source">
+            <pre><span class="ruby-comment"># File tictactoe.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sample_board</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n\n1|2|3&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;-----&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;4|5|6&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;-----&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;7|8|9&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-view_board" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">view_board</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>draws the board</p>
+          
+          
+
+          
+          <div class="method-source-code" id="view_board-source">
+            <pre><span class="ruby-comment"># File tictactoe.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">view_board</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\n\n#{@grid[0]}|#{@grid[1]}|#{@grid[2]}&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;-----&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{@grid[3]}|#{@grid[4]}|#{@grid[5]}&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;-----&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{@grid[6]}|#{@grid[7]}|#{@grid[8]}&quot;</span>
+
+  <span class="ruby-identifier">winner?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-winner-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">winner?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>checks for winning move 123, 147, 159, 789, 369, 357, 258, 456</p>
+          
+          
+
+          
+          <div class="method-source-code" id="winner-3F-source">
+            <pre><span class="ruby-comment"># File tictactoe.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">winner?</span>
+  <span class="ruby-keyword">if</span>( 
+                ([<span class="ruby-ivar">@grid</span>[<span class="ruby-value">0</span>], <span class="ruby-ivar">@grid</span>[<span class="ruby-value">1</span>], <span class="ruby-ivar">@grid</span>[<span class="ruby-value">2</span>]].<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@grid</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&quot; &quot;</span>) <span class="ruby-operator">||</span>
+                ([<span class="ruby-ivar">@grid</span>[<span class="ruby-value">0</span>], <span class="ruby-ivar">@grid</span>[<span class="ruby-value">3</span>], <span class="ruby-ivar">@grid</span>[<span class="ruby-value">6</span>]].<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@grid</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&quot; &quot;</span>) <span class="ruby-operator">||</span>
+                ([<span class="ruby-ivar">@grid</span>[<span class="ruby-value">0</span>], <span class="ruby-ivar">@grid</span>[<span class="ruby-value">4</span>], <span class="ruby-ivar">@grid</span>[<span class="ruby-value">8</span>]].<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@grid</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&quot; &quot;</span>) <span class="ruby-operator">||</span>
+                ([<span class="ruby-ivar">@grid</span>[<span class="ruby-value">6</span>], <span class="ruby-ivar">@grid</span>[<span class="ruby-value">7</span>], <span class="ruby-ivar">@grid</span>[<span class="ruby-value">8</span>]].<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@grid</span>[<span class="ruby-value">6</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&quot; &quot;</span>) <span class="ruby-operator">||</span>
+                ([<span class="ruby-ivar">@grid</span>[<span class="ruby-value">2</span>], <span class="ruby-ivar">@grid</span>[<span class="ruby-value">5</span>], <span class="ruby-ivar">@grid</span>[<span class="ruby-value">8</span>]].<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@grid</span>[<span class="ruby-value">2</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&quot; &quot;</span>) <span class="ruby-operator">||</span>
+                ([<span class="ruby-ivar">@grid</span>[<span class="ruby-value">2</span>], <span class="ruby-ivar">@grid</span>[<span class="ruby-value">4</span>], <span class="ruby-ivar">@grid</span>[<span class="ruby-value">6</span>]].<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@grid</span>[<span class="ruby-value">2</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&quot; &quot;</span>) <span class="ruby-operator">||</span>
+                ([<span class="ruby-ivar">@grid</span>[<span class="ruby-value">1</span>], <span class="ruby-ivar">@grid</span>[<span class="ruby-value">4</span>], <span class="ruby-ivar">@grid</span>[<span class="ruby-value">7</span>]].<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@grid</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&quot; &quot;</span>) <span class="ruby-operator">||</span>
+                ([<span class="ruby-ivar">@grid</span>[<span class="ruby-value">3</span>], <span class="ruby-ivar">@grid</span>[<span class="ruby-value">4</span>], <span class="ruby-ivar">@grid</span>[<span class="ruby-value">5</span>]].<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@grid</span>[<span class="ruby-value">3</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&quot; &quot;</span>)
+                )
+                <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+                <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,51 @@
+Tic Tac Toe
+
+Player class
+	ID: X or O
+	move
+		assign box
+	win?
+
+
+Board class
+	9 boxes
+		array of " "
+
+	draw box
+		puts "------"
+		puts "|    |"
+		puts "|    |"
+		puts "|    |"
+		puts "------"
+	which box
+
+	assign box
+
+	winner? method
+		checks if 123, 147, 159, 789, 369, 357, 258, 456
+
+
+
+
+
+-----------
+
+create 2 instances of player  --> choose X/O assignment?
+instantiate box
+
+while winner?
+	player 1 move(space)	
+	box.drawbox
+	player 2 move(space)
+	box.drawbox
+
+
+
+
+def grid(array)
+  puts "#{array[0]}|#{array[1]}|#{array[2]}"
+  puts "-----"
+  puts "#{array[3]}|#{array[4]}|#{array[5]}"
+  puts "-----"
+  puts "#{array[6]}|#{array[7]}|#{array[8]}"
+end

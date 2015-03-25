@@ -41,7 +41,7 @@ class Game
 	  end 
 	end
 
-	# 'draws' a cat when thre is a 'draw'
+	# 'draws' a cat when there is a 'draw'
 	def draw_cat
 		puts "\n\n=^.^="
 		@ttt.view_board
