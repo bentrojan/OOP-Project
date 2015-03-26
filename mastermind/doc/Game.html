@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Game - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-game_over-3F">#game_over?</a>
+    
+    <li ><a href="#method-i-guess">#guess</a>
+    
+    <li ><a href="#method-i-play">#play</a>
+    
+    <li ><a href="#method-i-welcome">#welcome</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Game">
+  <h1 id="class-Game" class="class">
+    class Game
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>initializes board and performs welcome</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File mastermind.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+        <span class="ruby-ivar">@board</span> = <span class="ruby-constant">Board</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-identifier">welcome</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-game_over-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">game_over?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>checks if the game has ended, quits appropriately</p>
+          
+          
+
+          
+          <div class="method-source-code" id="game_over-3F-source">
+            <pre><span class="ruby-comment"># File mastermind.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">game_over?</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@board</span>.<span class="ruby-identifier">win?</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;CONGRATULATIONS YOU&#39;VE WON!&quot;</span>
+                <span class="ruby-identifier">exit</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@board</span>.<span class="ruby-identifier">lose?</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;You have lost! No sprinkles for you. \nAnswer:&quot;</span>
+                <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;#{@board.solution[0]} #{@board.solution[1]} &quot;</span>
+                <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;#{@board.solution[2]} #{@board.solution[3]}\n\n&quot;</span>
+                <span class="ruby-identifier">exit</span>
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-keyword">false</span>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-guess" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">guess</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>main guess output/input, feeds to <a href="Game/Board.html">Board</a> guess
+processing method</p>
+          
+          
+
+          
+          <div class="method-source-code" id="guess-source">
+            <pre><span class="ruby-comment"># File mastermind.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">guess</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n\n\nPlease enter your guess in the form XXXX!&quot;</span>
+        <span class="ruby-ivar">@board</span>.<span class="ruby-identifier">new_guess</span>(<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">upcase</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-play" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">play</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>main game loop; prints all guesses after every guess</p>
+          
+          
+
+          
+          <div class="method-source-code" id="play-source">
+            <pre><span class="ruby-comment"># File mastermind.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">play</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;The computer has generated a code. You must guess it.&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Colors available: (B)lue, (G)reen, (O)range, (P)ink, (R)ed, and (Y)ellow.&quot;</span>
+        
+        <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>                       
+                <span class="ruby-identifier">guess</span>                        
+                <span class="ruby-ivar">@board</span>.<span class="ruby-identifier">code_pegs</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pegs</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+                        <span class="ruby-identifier">pegs</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;#{p} &quot;</span> }
+                        <span class="ruby-identifier">print</span> <span class="ruby-node">&quot; - #{@board.key_pegs[i][0]} correct; #{@board.key_pegs[i][1]} close\n&quot;</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-identifier">game_over?</span> 
+        <span class="ruby-keyword">end</span>           
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-welcome" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">welcome</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>welcomes player to game and demands that they press P to start</p>
+          
+          
+
+          
+          <div class="method-source-code" id="welcome-source">
+            <pre><span class="ruby-comment"># File mastermind.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">welcome</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Welcome to MASTERMIND!&quot;</span>
+        <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Enter P to play!&quot;</span>
+                <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">upcase</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;P&quot;</span> 
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">play</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
