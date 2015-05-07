@@ -1,5 +1,5 @@
 class Game
-
+	attr_reader :ttt, :x, :o, :player_number
 	# initializes a board and two players
 	def initialize
 		@ttt = Board.new
@@ -12,21 +12,18 @@ class Game
 	# plays the game
 	def play		
 		loop do
-		  @player_number += 1
 		  @ttt.view_board
 
-		  turn
-
-			if @ttt.winner?
-				@ttt.view_board
+		  if @ttt.winner?
 				puts @player_number % 2 == 0 ? "\nX is the winner!" : "\nO is the winner!"
 				exit
-			end		
-
-		  if @ttt.cat_game?
+			elsif @ttt.cat_game?
 				draw_cat
 				exit
 		  end
+
+			@player_number += 1
+			turn
 		end
 	end
 
@@ -49,9 +46,10 @@ class Game
 		puts "cat's game! game over!"
 	end
 
+
 	# controls the gaming board
 	class Board
-
+		attr_reader :grid
 		# initializes the board with a 9-place array, each with value " " to be adjusted later
 		def initialize
 		  @grid = []
@@ -74,8 +72,6 @@ class Game
 		  puts "#{@grid[3]}|#{@grid[4]}|#{@grid[5]}"
 		  puts "-----"
 		  puts "#{@grid[6]}|#{@grid[7]}|#{@grid[8]}"
-
-		  winner?
 		end
 
 		# assigns X or O to a box - checks box is vacant and number is 1-9
@@ -84,7 +80,8 @@ class Game
 				puts "nope, try again"
 				box = gets.chomp.to_i
 		  end
-		 	  @grid[box-1] = xoro
+		 	 @grid[box-1] = xoro
+		 	 'pass'
 		end
 
 		# checks for winning move 123, 147, 159, 789, 369, 357, 258, 456
@@ -112,6 +109,7 @@ class Game
 
 	end
 
+
 	# holds X or O and interacts with Board through Game
 	class Player
 		attr_reader :xoro
@@ -131,6 +129,6 @@ end
 	#============================================
 	# 
 
-	Game.new.play
+	#Game.new.play
 
 
